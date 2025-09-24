@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  mount User::Engine => "/user"
+  mount Admin::Engine => "/admin"
+  mount User::Engine => "/"
 end
