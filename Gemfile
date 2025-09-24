@@ -63,3 +63,4 @@ group :test do
 end
 
 gem "admin", path: "admin"
+gem "user", path: "user"

@@ -4,6 +4,12 @@ PATH
     admin (0.1.0)
       rails (>= 8.0.3)
 
+PATH
+  remote: user
+  specs:
+    user (0.1.0)
+      rails (>= 8.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -399,6 +405,7 @@ DEPENDENCIES
   thruster
   turbo-rails
   tzinfo-data
+  user!
   web-console
 
 BUNDLED WITH
