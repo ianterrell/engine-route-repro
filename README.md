@@ -1,24 +1,41 @@
-# README
+```ruby
+module User
+  class RouteGenerationTest < ActionDispatch::IntegrationTest
+    include Engine.routes.url_helpers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+    test "should not change route generation" do
+      assert_equal "/admin/dashboard", admin.dashboard_path
+      assert_equal "/dashboard", user.dashboard_path
 
-Things you may want to cover:
+      get admin.dashboard_path
+      assert_response :success
+      assert_equal "Admin Dashboard", @response.body
 
-* Ruby version
+      assert_equal "/dashboard", user.dashboard_path
+    end
+  end
+end
+```
 
-* System dependencies
+```bash
+> rails t
+Running 1 tests in a single process (parallelization threshold is 50)
+Run options: --seed 18215
 
-* Configuration
+# Running:
 
-* Database creation
+F
 
-* Database initialization
+Failure:
+User::RouteGenerationTest#test_should_not_change_route_generation [test/controllers/route_generation_test.rb:15]:
+Expected: "/dashboard"
+  Actual: "/admin/dashboard"
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+bin/rails test test/controllers/route_generation_test.rb:7
 
-* Deployment instructions
 
-* ...
+
+Finished in 0.040116s, 24.9277 runs/s, 124.6385 assertions/s.
+1 runs, 5 assertions, 1 failures, 0 errors, 0 skips
+```
