@@ -1,7 +1,7 @@
 module Admin
   class DashboardsController < ApplicationController
     def show
-      render plain: "Admin Dashboard"
+      render plain: user.dashboard_path
     end
   end
 end
