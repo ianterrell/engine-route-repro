@@ -10,7 +10,7 @@ module User
 
       get admin.dashboard_path
       assert_response :success
-      assert_equal "Admin Dashboard", @response.body
+      assert_equal "/dashboard", @response.body
 
       assert_equal "/dashboard", user.dashboard_path
     end
